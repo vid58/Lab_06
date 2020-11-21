@@ -1,4 +1,3 @@
-//alu.v Use your own ALU 
 module alu ( input [31:0] a,b,
              input [1:0] ALUControl,
              output reg [31:0] Result, //assign always block
@@ -22,6 +21,7 @@ module alu ( input [31:0] a,b,
       2'b0?: Result = sum;
       2'b10: Result = a & b;
       2'b11: Result = a | b;
+		//modificar aqui, El ALUControl deberia tener 3 bits
     endcase
   
  //flags: result -> negative, zero
@@ -34,3 +34,5 @@ module alu ( input [31:0] a,b,
   assign ALUFlags = {negative, zero, carry, overflow};
 
 endmodule
+
+

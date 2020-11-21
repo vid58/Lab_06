@@ -1,4 +1,3 @@
-//additional_hw.v
 module extend (
 	Instr,
 	ImmSrc,
@@ -48,6 +47,7 @@ module flopenr (
 		else if (en)
 			q <= d;
 endmodule
+
 module flopr (
 	clk,
 	reset,
@@ -71,7 +71,7 @@ module mux2 (
 	d1,
 	s,
 	y
-);	
+);
 	parameter WIDTH = 8;
 	input wire [WIDTH - 1:0] d0;
 	input wire [WIDTH - 1:0] d1;
@@ -79,3 +79,4 @@ module mux2 (
 	output wire [WIDTH - 1:0] y;
 	assign y = (s ? d1 : d0);
 endmodule
+

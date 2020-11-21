@@ -1,4 +1,3 @@
-//top.v
 module top (
 	clk,
 	reset,
@@ -36,3 +35,4 @@ module top (
 		.rd(ReadData)
 	);
 endmodule
+

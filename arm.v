@@ -1,4 +1,3 @@
-//arm.v
 module arm (
 	clk,
 	reset,

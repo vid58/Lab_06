@@ -1,4 +1,3 @@
-//control_unit.v
 module controller (
 	clk,
 	reset,
@@ -58,6 +57,7 @@ module controller (
 	);
 endmodule
 
+
 module decode (
 	Op,
 	Funct,
@@ -89,16 +89,16 @@ module decode (
 	wire ALUOp;
 	always @(*)
 		casex (Op)
-			2'b00:       //Data Processing
+			2'b00:	//Data Processing
 				if (Funct[5])
 					controls = 10'b0000101001;
 				else
 					controls = 10'b0000001001;
-			2'b01:   // LDR
+			2'b01:	// LDR Revisar
 				if (Funct[0])
-					controls = 10'b0001111000; //str
+					controls = 10'b0001111000;	// STR
 				else
-					controls = 10'b1001110100; //B
+					controls = 10'b1001110100;	// B
 			2'b10: controls = 10'b0110100010;
 			default: controls = 10'bxxxxxxxxxx;
 		endcase
@@ -106,11 +106,10 @@ module decode (
 	always @(*)
 		if (ALUOp) begin
 			case (Funct[4:1])
-				4'b0100: ALUControl = 2'b000;
-				4'b0010: ALUControl = 2'b001;
-				4'b0000: ALUControl = 2'b010;
-				4'b1100: ALUControl = 2'b011;
-                4'b0001: ALUControl = 2'b100; //EOR
+				4'b0100: ALUControl = 2'b00;//Modificar aqui por el ALU 2'b000
+				4'b0010: ALUControl = 2'b01;//2'b001
+				4'b0000: ALUControl = 2'b10;//2'b010
+				4'b1100: ALUControl = 2'b11;//4'b0001: ALUControl = 2'b100 EOR
 				default: ALUControl = 2'bxx;
 			endcase
 			FlagW[1] = Funct[0];
@@ -212,3 +211,5 @@ module condcheck (
 			default: CondEx = 1'bx;
 		endcase
 endmodule
+
+

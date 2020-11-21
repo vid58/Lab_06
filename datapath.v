@@ -1,4 +1,3 @@
-//datapath.v
 module datapath (
 	clk,
 	reset,
@@ -103,10 +102,11 @@ module datapath (
 		.y(SrcB)
 	);
 	alu alu(
-      .a(SrcA),
-      .b(SrcB),
-      .ALUControl(ALUControl),
-      .Result(ALUResult),
-      .ALUFlags(ALUFlags)
+		.a(SrcA),
+		.b(SrcB),
+		.ALUControl(ALUControl),
+		.Result(ALUResult),
+		.ALUFlags(ALUFlags)
 	);
 endmodule
+

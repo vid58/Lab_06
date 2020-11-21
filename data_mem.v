@@ -1,4 +1,3 @@
-//data_mem.v
 module dmem (
 	clk,
 	we,
@@ -17,3 +16,4 @@ module dmem (
 		if (we)
 			RAM[a[31:2]] <= wd;
 endmodule
+
